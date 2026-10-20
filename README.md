@@ -46,23 +46,46 @@ In every simulation the true data-generating model contains **no treatment × G 
 
 ## Mapping from paper to code
 
-[TODO: replace the "Paper item" column with the final figure/table numbers.]
+Simulation outputs are in `simulation/simulation-outputs/`. Figures that combine UKB and HRN show only the UKB panel here, because HRN individual-level data are not in this repository. The directed acyclic graphs (Fig. 2, Fig. 7, Extended Data Fig. 1 and Supplementary Fig. 1) were drawn by hand and have no code.
 
-| Paper item | Script | Output file |
+### Main figures and tables
+
+| Paper item | Content | Script | Output file |
+|---|---|---|---|
+| Fig. 1 | Collider-bias illustration | `figures/collider_example.r` | `figures/collider_example.png` |
+| Fig. 3 | Published vs simulated subgroup treatment HRs | `simulation/clinical_trial_one_shot_sim_refactor.r` | `risk_reduction_by_grs.png` |
+| Fig. 4 | Compatibility probability across β<sub>AU</sub> | same | `beta_AU_sensitivity_compatibility_probability.png` |
+| Fig. 5 | Observational simulation: full cohort vs baseline LDL-C tertiles | `simulation/log_normal_prs_statin_interaction.r` | `mc_boxplot_interaction_strata_tertiles.png` |
+| Fig. 6 | UKB + HRN meta-analysis within baseline LDL-C tertiles | `figures/ukb_hrn_meta_analysis.r` | `figures/statin_ldl_stratified_forest_ukb_hrn_meta.png` |
+| Fig. 8 | Propensity score diagnostics (UKB panel) | `ukb/run_analysis.ipynb` | `ukb/iptw_diagnostics_plot.png` |
+| Table 1 | Parameters shared across trial simulations | `simulation/clinical_trial_one_shot_sim_refactor.r` | `pars_anchor` |
+| Table 2 | Trial-specific parameters | same | `fourier_spec`, `odyssey_spec`, `woscops_spec` |
+| Table 3 | Observational simulation parameters | `simulation/log_normal_prs_statin_interaction.r` | `simulate_1period()` defaults |
+
+### Extended Data and Supplementary Information
+
+| Paper item | Content | Script | Output file |
+|---|---|---|---|
+| Extended Data Fig. 2 | Distribution of simulated high- vs lower-PRS HR ratios | `simulation/clinical_trial_one_shot_sim_refactor.r` | `compatibility_HR_ratio_distribution.png` |
+| Extended Data Fig. 3 | CAD PRS × statin on acute coronary events (UKB panel) | `ukb/run_analysis.ipynb` | `ukb/statin_ami_interaction_forest.png` |
+| Extended Data Fig. 4 | LDL PRS × statin on follow-up LDL-C (UKB panel) | same | `ukb/statin_ldl_interaction_forest.png` |
+| Extended Data Fig. 5 | Cohort-specific estimates within baseline LDL-C tertiles (UKB panel) | `ukb/run_stratified_analysis.ipynb` | `ukb/statin_ldl_stratified_forest.png` |
+| Supplementary Fig. 2 | Initiator-only change-score designs in simulation | `simulation/log_normal_prs_statin_interaction.r` | `mc_boxplot_change_score_designs.png` |
+| Supplementary Fig. 3 | UKB + HRN meta-analysis of change-score designs | `figures/ukb_hrn_meta_analysis.r` | `figures/statin_ldl_change_score_forest_ukb_hrn_meta.png` |
+
+### Additional outputs not shown in the paper
+
+| Content | Script | Output file |
 |---|---|---|
-| Collider-bias schematic | `figures/collider_example.r` | `figures/collider_example.png` |
-| Trial simulations: treatment HR by PRS group vs published estimates | `simulation/clinical_trial_one_shot_sim_refactor.r` | `simulation-outputs/risk_reduction_by_grs.png` |
-| Trial simulations: non-genetic risk by PRS decile, population vs trial | same | `simulation-outputs/nongenetic_risk_by_prs_decile.png` |
-| Trial simulations: compatibility with published HR contrasts | same | `simulation-outputs/compatibility_probability_HR_contrast.png`, `compatibility_HR_ratio_distribution.png` |
-| Trial simulations: compatibility with published ARR contrasts | same | `simulation-outputs/compatibility_probability_ARR_contrast.png`, `compatibility_ARR_distribution.png` |
-| Trial simulations: sensitivity to β<sub>AU</sub> | same | `simulation-outputs/beta_AU_sensitivity_*.png` |
-| Observational simulation: interaction by adjustment strategy | `simulation/log_normal_prs_statin_interaction.r` | `simulation-outputs/mc_boxplot_interaction.png`, `mc_hist_interaction.png` |
-| Observational simulation: interaction within baseline LDL-C tertiles | same | `simulation-outputs/mc_boxplot_interaction_strata_tertiles.png` |
-| Observational simulation: tertiles with randomised treatment | same | `simulation-outputs/mc_boxplot_interaction_rand_tertiles.png` |
-| Observational simulation: change-score designs | same | `simulation-outputs/mc_boxplot_change_score_designs.png` |
-| UKB + HRN: interaction within baseline LDL-C tertiles | `figures/ukb_hrn_meta_analysis.r` | `figures/statin_ldl_stratified_forest_ukb_hrn_meta.png` |
-| UKB + HRN: change-score designs | same | `figures/statin_ldl_change_score_forest_ukb_hrn_meta.png` |
-| UKB-only results and diagnostics | `ukb/*.ipynb` | `ukb/*.png` |
+| Non-genetic risk by PRS decile, population vs trial | `simulation/clinical_trial_one_shot_sim_refactor.r` | `nongenetic_risk_by_prs_decile.png` |
+| Compatibility with published HR contrasts | same | `compatibility_probability_HR_contrast.png` |
+| Compatibility with published ARR contrasts | same | `compatibility_probability_ARR_contrast.png`, `compatibility_ARR_distribution.png` |
+| Other β<sub>AU</sub> sensitivity views, including models adjusted for LDL-C and a proxy for B | same | `beta_AU_sensitivity_HR_contrast.png`, `beta_AU_sensitivity_overview.png`, `beta_AU_sensitivity_adjusted_*.png` |
+| Observational simulation by adjustment strategy | `simulation/log_normal_prs_statin_interaction.r` | `mc_boxplot_interaction.png`, `mc_hist_interaction.png` |
+| Observational simulation, tertiles with randomised treatment | same | `mc_boxplot_interaction_rand_tertiles.png` |
+| UKB change-score estimates (inputs to Supplementary Fig. 3) | `ukb/run_initiator_only_analysis.ipynb` | `ukb/statin_ldl_change_score_forest.png` |
+| UKB assessment-centre sensitivity analysis | `ukb/run_analysis_from_assessment.ipynb` | `ukb/*_from_assessment.png` |
+| UKB cohort descriptives | `ukb/format_gp_data.ipynb` | `ukb/ldl_change_by_status.png`, `ukb/ldl_follow_up_prop.png`, `ukb/statin_initiation_by_ldl.png` |
 
 ---
 
@@ -256,7 +279,7 @@ This step needs only the two summary-statistic files in `figures/`. Each file ho
 - `ukb_hrn_interaction_estimates.csv`: A × LDL-PRS interaction in the full cohort and within each baseline LDL-C tertile.
 - `ukb_hrn_change_score_estimates.csv`: LDL-PRS coefficient for each change-score outcome, with sample size.
 
-The UKB rows come from steps 5 and 6 above. The HRN rows come from the same analyses, run by the Helix team in the Helix Research Network (HRN) cohorts under HRN application 20250641. HRN individual-level data are not included in this repository. [TODO: HRN data access route and contact.]
+The UKB rows come from steps 5 and 6 above. The HRN rows come from the same analyses, run by the Helix team in the Helix Research Network (HRN) cohorts under HRN application 20250641. HRN individual-level data are not included in this repository and are not publicly available. Qualified researchers affiliated with HRN Member Sites or approved third-party institutions can request access to de-identified data through the HRN governance process. This involves a research proposal, subcommittee review, human subjects research training and a data use agreement. Enquiries about data access can be sent to <research@helix.com>.
 
 The script pools estimates by fixed-effect inverse-variance meta-analysis. It reports Cochran's Q and I², writes `ukb_hrn_meta_analysis_results.csv` and `ukb_hrn_change_score_meta_analysis_results.csv`, and draws the two forest plots.
 
