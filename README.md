@@ -2,9 +2,9 @@
 
 Code to reproduce the simulations, UK Biobank analyses and figures for:
 
-> Matthew J Tudball, Elizabeth T Cirulli, Michael V Holmes, George Davey Smith, J Brent Richards. **Polygenic prediction of treatment response for precision medicine is vulnerable to collider bias.** *medRxiv* (2026). [TODO: DOI]
+> Matthew J Tudball, Elizabeth T Cirulli, Michael V Holmes, George Davey Smith, J Brent Richards. **Polygenic prediction of treatment response for precision medicine is vulnerable to collider bias.** *medRxiv* (2026). doi: [10.64898/2026.10.18.26365857](https://doi.org/10.64898/2026.10.18.26365857)
 
-**Preprint:** [PLACEHOLDER: medRxiv link to be added once the preprint is posted]
+**Preprint:** https://www.medrxiv.org/content/10.64898/2026.10.18.26365857v1
 
 The paper argues that apparent treatment-by-polygenic-risk-score (PRS) interactions in drug-response studies can arise without any true genetic modification of drug effect. Two designs are studied:
 
@@ -304,7 +304,16 @@ Only summary statistics (`figures/ukb_hrn_*_estimates.csv`) are distributed with
 
 ## Citation
 
-[TODO: BibTeX entry once published.]
+```bibtex
+@article{tudball2026polygenic,
+  title   = {Polygenic prediction of treatment response for precision medicine is vulnerable to collider bias},
+  author  = {Tudball, Matthew J and Cirulli, Elizabeth T and Holmes, Michael V and Davey Smith, George and Richards, J Brent},
+  journal = {medRxiv},
+  year    = {2026},
+  doi     = {10.64898/2026.10.18.26365857},
+  url     = {https://www.medrxiv.org/content/10.64898/2026.10.18.26365857v1}
+}
+```
 
 ## Contact
 
