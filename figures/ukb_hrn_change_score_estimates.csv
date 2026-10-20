@@ -1,0 +1,7 @@
+cohort,analysis,estimate,lower_ci,upper_ci,se,n
+UKB,Absolute change in LDL-C,-0.158000,-0.186000,-0.129000,0.014541,5050
+UKB,Unadjusted relative change in LDL-C,-0.007000,-0.016000,0.002000,0.004592,5050
+UKB,Adjusted relative change in LDL-C,0.041000,0.031000,0.050000,0.004847,5050
+HRN,Absolute change in LDL-C,-0.117478,-0.145522,-0.089434,0.014308,6005
+HRN,Unadjusted relative change in LDL-C,-0.011494,-0.021158,-0.001830,0.004931,6005
+HRN,Adjusted relative change in LDL-C,0.042461,0.033804,0.051118,0.004417,6005

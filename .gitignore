@@ -1,0 +1,55 @@
+# Ignore all CSV and TSV files, including compressed versions
+*.regenie.gz
+*.phe
+*.rds
+*.xlsx
+*.txt
+*.csv
+*.tsv
+*.csv.gz
+*.tsv.gz
+*.txt.gz
+*.tsv.bgz
+*.tsv.gz.tbi
+*.deb
+
+# Optional: Ignore any CSV/TSV files inside subdirectories
+**/*.regenie.gz
+**/*.phe
+**/*.rds
+**/*.xlsx
+**/*.txt
+**/*.csv
+**/*.tsv
+**/*.csv.gz
+**/*.tsv.gz
+**/*.tsv.gz
+**/*.tsv.bgz
+**/*.deb
+
+# Plink files
+*.sample
+*.bgen
+*.bgen.bgi
+*.zip
+*.list
+*.log
+*.bim
+*.bed
+*.fam
+*.sscore
+
+# Ensure .gitignore itself is not ignored
+!.gitignore
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Stray default R graphics device output from Rscript batch runs
+Rplots.pdf
+**/Rplots.pdf
+
+# Keep UKB/HRN meta-analysis input estimates under version control
+!figures/ukb_hrn_interaction_estimates.csv
+!figures/ukb_hrn_change_score_estimates.csv
